@@ -9,4 +9,6 @@
     <dubbo:registry address="zookeeper://localhost:2181"/>
     <!--使用 dubbo 协议调用定义好的 api.PermissionService 接口-->
     <dubbo:reference id="permissionService" interface="api.PermissionService"/>
+    <!--使用 dubbo 协议调用定义好的 api.PermissionRestService 接口-->
+    <dubbo:reference id="permissionRestService" interface="api.PermissionRestService"/>
 </beans>

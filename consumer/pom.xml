@@ -32,6 +32,42 @@
             <artifactId>zkclient</artifactId>
             <version>0.1</version>
         </dependency>
+
+        <!--使用 netty 启动 rest 服务-->
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-netty</artifactId>
+            <version>3.0.7.Final</version>
+        </dependency>
+        <!--rest json 输出-->
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-jackson-provider</artifactId>
+            <version>3.0.7.Final</version>
+        </dependency>
+        <!--rest 需要的依赖-->
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-client</artifactId>
+            <version>3.0.7.Final</version>
+        </dependency>
+        <!--验证-->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>4.2.0.Final</version>
+        </dependency>
+        <!--slf4j 和其依赖-->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.5</version>
+        </dependency>
     </dependencies>
 
 </project>
