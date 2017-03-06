@@ -10,10 +10,19 @@
     <dubbo:application name="demotest-provider" owner="programmer" organization="dubbox"/>
     <!--使用 zookeeper 注册中心暴露服务，注意要先开启 zookeeper-->
     <dubbo:registry address="zookeeper://localhost:2181"/>
-    <!-- 用dubbo协议在20880端口暴露服务 -->
+    <!-- 用 dubbo 协议在 20880 端口暴露服务 -->
     <dubbo:protocol name="dubbo" port="20880" />
     <!--使用 dubbo 协议实现定义好的 api.PermissionService 接口-->
     <dubbo:service interface="api.PermissionService" ref="permissionService" protocol="dubbo" />
     <!--具体实现该接口的 bean-->
     <bean id="permissionService" class="provider.PermissionServiceImpl"/>
+    <!--使用 netty 服务，将 rest 服务暴露在 4567 端口-->
+    <dubbo:protocol name="rest" port="4567" threads="500" contextpath="services" server="netty" accepts="500"
+                    extension="com.alibaba.dubbo.rpc.protocol.rest.support.LoggingFilter"/>
+    <!--使用 rest 规范实现定义好的 api.PermissionRestService 接口-->
+    <dubbo:service interface="api.PermissionRestService" ref="permissionRestService" protocol="rest"  validation="true"/>
+    <!--具体实现该接口的 bean-->
+    <bean id="permissionRestService" class="provider.PermissionRestServiceImpl">
+        <property name="permissionService" ref="permissionService"/>
+    </bean>
 </beans>
